@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { Problem } from '../../models/problem.model';
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-problem-detail',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProblemDetailComponent implements OnInit {
 
-  constructor() { }
+  problem: Problem;
+
+  constructor(
+    private route: ActivatedRoute,
+    @Inject("data") private data
+  ) { }
+
 
   ngOnInit() {
+    // subscribe: whenever the params have changed, the function is called
+    this.route.params.subscribe(params => {
+      // +: transfer string into number
+      this.problem = this.data.getProblem(+params['id']);
+    });
   }
 
 }
