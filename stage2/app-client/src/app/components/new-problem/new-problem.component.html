@@ -1,0 +1,27 @@
+<div>
+  <form #formRef="ngForm">
+    <div class="form-group">
+      <label for="problemName">Problem Name</label>
+      <input type="text" class="form-control" id="problemName" name="problemName"
+             required placeholder="Enter Problem Name" [(ngModel)]="newProblem.name">
+    </div>
+    <div class="form-group">
+      <label for="problemDesc">Problem Description</label>
+      <textarea type="text" row="3" class="form-control" id="problemDesc" name="problemDesc"
+                required placeholder="Enter Problem Description" [(ngModel)]="newProblem.desc">
+      </textarea>
+    </div>
+    <div class="form-group">
+      <label for="diff">Difficulty</label>
+      <select type="text" row="3" class="form-control" id="diff" name="diff"
+              [(ngModel)]="newProblem.difficulty">
+        <option [value]="difficulty" *ngFor="let difficulty of difficulties">
+          {{difficulty}}
+        </option>
+      </select>
+    </div>
+    <div class="row">
+      <button type="submit" class="btn btn-primary" (click)="addProblem()">Add Problem</button>
+    </div>
+  </form>
+</div>
