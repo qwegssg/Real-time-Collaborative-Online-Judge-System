@@ -7,7 +7,7 @@ import { ProblemDetailComponent } from './components/problem-detail/problem-deta
 
 import { DataService} from "./services/data.service";
 
-import { routing } from "./app.routes"
+import { routing } from "./app.routes";
 
 @NgModule({
   declarations: [
