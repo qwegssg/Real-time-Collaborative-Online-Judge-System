@@ -17,14 +17,15 @@
     <session id="-826861249">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -86,8 +87,8 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/stage2/.gitignore">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
               <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
@@ -95,7 +96,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stage2/app-server/server.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
@@ -184,17 +185,6 @@
               <item name="Real-time-Online-Collaborative-Judgement-System" type="b2602c69:ProjectViewProjectNode" />
               <item name="Real-time-Online-Collaborative-Judgement-System" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Real-time-Online-Collaborative-Judgement-System" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Real-time-Online-Collaborative-Judgement-System" type="462c0819:PsiDirectoryNode" />
-              <item name="stage2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Real-time-Online-Collaborative-Judgement-System" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Real-time-Online-Collaborative-Judgement-System" type="462c0819:PsiDirectoryNode" />
-              <item name="stage2" type="462c0819:PsiDirectoryNode" />
-              <item name="app-server" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -209,6 +199,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/stage2" />
     </key>
   </component>
@@ -239,16 +230,16 @@
       <workItem from="1545205913303" duration="5499000" />
       <workItem from="1545283915995" duration="8274000" />
       <workItem from="1545313071406" duration="2901000" />
-      <workItem from="1545316009228" duration="2157000" />
+      <workItem from="1545316009228" duration="2326000" />
+      <workItem from="1545318371754" duration="71000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34495000" />
+    <option name="totallyTimeSpent" value="34735000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1377" height="912" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30769232" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -490,17 +481,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stage2/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/stage2/app-server/server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="65" selection-start-line="6" selection-start-column="65" selection-end-line="6" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
         </state>
       </provider>
     </entry>
