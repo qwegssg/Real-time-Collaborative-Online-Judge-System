@@ -30,7 +30,7 @@ var addProblem = (newProblem) => {
             if (problem) {
                 reject("Problem name already exists.");
             } else {
-                ProblemModel.count({}, (err, num) => {
+                ProblemModel.countDocuments({}, (err, num) => {
                     if (err) {
                         reject(err);
                     } else {
