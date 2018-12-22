@@ -1,11 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { Problem } from "../../models/problem.model"
+import { Problem } from '../../models/problem.model';
 
 const DEFAULT_PROBLEM: Problem = Object.freeze({
   id: 0,
-  name: "",
-  desc: "",
-  difficulty: "Easy"
+  name: '',
+  desc: '',
+  difficulty: 'Easy'
 });
 
 @Component({
@@ -15,17 +15,18 @@ const DEFAULT_PROBLEM: Problem = Object.freeze({
 })
 export class NewProblemComponent implements OnInit {
 
-  public difficulties = ["Easy", "Medium", "Hard", "Super"];
+  public difficulties = ['Easy', 'Medium', 'Hard', 'Super'];
 
   newProblem: Problem = Object.assign({}, DEFAULT_PROBLEM);
 
-  constructor(@Inject("data") private data) { }
+  constructor(@Inject('data') private data) { }
 
   ngOnInit() {
   }
 
   addProblem(): void {
-    this.data.addProblem(this.newProblem);
+    this.data.addProblem(this.newProblem)
+              .catch(error => console.error(error.body));
     // when new problem is added, clear the input value of form
     this.newProblem = Object.assign({}, DEFAULT_PROBLEM);
   }
