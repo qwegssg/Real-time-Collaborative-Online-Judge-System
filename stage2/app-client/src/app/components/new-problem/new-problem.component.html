@@ -13,7 +13,7 @@
     </div>
     <div class="form-group">
       <label for="diff">Difficulty</label>
-      <select type="text" row="3" class="form-control" id="diff" name="diff"
+      <select type="text" class="form-control" id="diff" name="diff"
               [(ngModel)]="newProblem.difficulty">
         <option [value]="difficulty" *ngFor="let difficulty of difficulties">
           {{difficulty}}
