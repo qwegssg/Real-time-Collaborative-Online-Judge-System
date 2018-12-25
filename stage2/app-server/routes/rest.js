@@ -18,7 +18,7 @@ router.get("/problems/:id", function(req, res) {
 router.post("/problems", jsonParser, function(req, res) {
    problemService.addProblem(req.body)
                     .then(problem => res.json(problem),
-                            error => res.status(400).send("Problem name already exists."));
+                            error => res.status(400).send(error));
 });
 
 module.exports = router;
