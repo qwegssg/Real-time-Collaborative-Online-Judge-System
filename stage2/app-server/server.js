@@ -9,7 +9,6 @@ const path = require("path");
 mongoose.connect("mongodb://user:user01@ds113749.mlab.com:13749/online-oj-system");
 
 app.use(express.static(path.join(__dirname, '../public')));
-
 app.use('/', indexRouter);
 app.use("/api/v1", restRouter);
 
