@@ -15,8 +15,10 @@ export class AuthService {
     domain: 'collaborativeoj-yutaoren.auth0.com',
     responseType: 'token id_token',
     redirectUri: 'http://localhost:3000',
-    scope: 'openid'
+    scope: 'openid profile'
   });
+
+  userProfile: any;
 
   constructor(public router: Router) {
     this._idToken = '';
@@ -37,16 +39,25 @@ export class AuthService {
   }
 
   // Add more methods to the AuthService service to handle authentication:
-  public handleAuthentication(): void {
-    this.auth0.parseHash((err, authResult) => {
-      if (authResult && authResult.accessToken && authResult.idToken) {
-        window.location.hash = '';
-        this.setSession(authResult);
-        this.router.navigate(['/problems']);
-      } else if (err) {
-        this.router.navigate(['/problems']);
-        console.log(err);
-      }
+  public handleAuthentication(): Promise<Object> {
+    // Promise process:
+    const self = this;
+    return new Promise((resolve, reject) => {
+      self.auth0.parseHash((err, authResult) => {
+        if (authResult && authResult.accessToken && authResult.idToken) {
+          window.location.hash = '';
+          self.setSession(authResult);
+          self.router.navigate(['/problems']);
+          // Promise process:
+          console.log(authResult);
+          resolve(authResult);
+        } else if (err) {
+          self.router.navigate(['/problems']);
+          console.log(err);
+          // Promise process:
+          reject(err);
+        }
+      });
     });
   }
 
@@ -60,14 +71,23 @@ export class AuthService {
     this._expiresAt = expiresAt;
   }
 
-  public renewSession(): void {
-    this.auth0.checkSession({}, (err, authResult) => {
-      if (authResult && authResult.accessToken && authResult.idToken) {
-        this.setSession(authResult);
-      } else if (err) {
-        alert(`Could not get a new token (${err.error}: ${err.error_description}).`);
-        this.logout();
-      }
+  public renewSession(): Promise<Object> {
+    // Promise process:
+    const self = this;
+    return new Promise((resolve, reject) => {
+      self.auth0.checkSession({}, (err, authResult) => {
+        if (authResult && authResult.accessToken && authResult.idToken) {
+          self.setSession(authResult);
+          // Promise process:
+          console.log(authResult);
+          resolve(authResult);
+        } else if (err) {
+          alert(`Could not get a new token (${err.error}: ${err.error_description}).`);
+          // Promise process:
+          reject(err);
+          self.logout();
+        }
+      });
     });
   }
 
@@ -88,4 +108,18 @@ export class AuthService {
     return new Date().getTime() < this._expiresAt;
   }
 
+
+  public getProfile(cb): void {
+    if (!this._accessToken) {
+      throw new Error('Access Token must exist to fetch profile');
+    }
+
+    const self = this;
+    this.auth0.client.userInfo(this._accessToken, (err, profile) => {
+      if (profile) {
+        self.userProfile = profile;
+      }
+      cb(err, profile);
+    });
+  }
 }
