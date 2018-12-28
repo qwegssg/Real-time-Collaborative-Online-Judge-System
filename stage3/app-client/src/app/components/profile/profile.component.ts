@@ -15,11 +15,13 @@ export class ProfileComponent implements OnInit {
     const self = this;
     if (self.auth.userProfile) {
       self.profile = this.auth.userProfile;
+      console.log(self.profile);
     } else {
       console.log('renewSession was called!');
       self.auth.renewSession().then(function() {
         self.auth.getProfile((err, profile) => {
           self.profile = profile;
+          console.log(self.profile);
         });
       }).catch(function(err) {
         console.log(err);

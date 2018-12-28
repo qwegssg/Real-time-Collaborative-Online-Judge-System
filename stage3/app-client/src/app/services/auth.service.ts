@@ -19,7 +19,7 @@ export class AuthService {
     domain: 'collaborativeoj-yutaoren.auth0.com',
     responseType: 'token id_token',
     redirectUri: 'http://localhost:3000',
-    scope: 'openid profile'
+    scope: 'openid email profile'
   });
 
   userProfile: any;
@@ -135,7 +135,7 @@ export class AuthService {
     const requestOptions = new RequestOptions({ headers: headers});
     const body = {
       client_id: this.auth0.baseOptions.clientID,
-      email: profile.name,
+      email: profile.email,
       connection: 'Username-Password-Authentication'
     };
     // console.log(this.auth0);
