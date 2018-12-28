@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { filter } from 'rxjs/operators';
 import * as auth0 from 'auth0-js';
+import {Http, Response, Headers, RequestOptions} from '@angular/http';
+// import 'rxjs/add/operator/toPromise';
+
+import { filter } from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable()
 export class AuthService {
@@ -20,7 +24,7 @@ export class AuthService {
 
   userProfile: any;
 
-  constructor(public router: Router) {
+  constructor(private router: Router, private http: Http) {
     this._idToken = '';
     this._accessToken = '';
     this._expiresAt = 0;
@@ -121,5 +125,34 @@ export class AuthService {
       }
       cb(err, profile);
     });
+  }
+
+
+  public resetPassword(): void {
+    const profile = this.userProfile;
+    const url = `https://${this.auth0.baseOptions.domain}/dbconnections/change_password`;
+    const headers = new Headers({ 'content-type': 'application/json' });
+    const requestOptions = new RequestOptions({ headers: headers});
+    const body = {
+      client_id: this.auth0.baseOptions.clientID,
+      email: profile.name,
+      connection: 'Username-Password-Authentication'
+    };
+    // console.log(this.auth0);
+    // console.log(profile);
+    // console.log(url);
+    // console.log(body);
+    this.http.post(url, body, requestOptions)
+      .toPromise()
+      .then((res: Response) => {
+        // res.json will throw an ERROR, use res.text instead!
+        console.log(res.text());
+      })
+      .catch(this.handleError);
+  }
+
+  private handleError(error: any): Promise<any> {
+    console.error('Error occurred', error);
+    return Promise.reject(error.message || error);
   }
 }

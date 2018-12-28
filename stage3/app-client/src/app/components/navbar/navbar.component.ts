@@ -9,8 +9,6 @@ export class NavbarComponent implements OnInit {
 
   title = 'CodeLeet';
 
-  // username = '';
-
   profile: any;
 
   constructor(@Inject('auth') private auth) {
@@ -20,27 +18,23 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     const self = this;
     if (localStorage.getItem('isLoggedIn') === 'true') {
-      console.log('renewSession was called!');
-      self.auth.renewSession().then(function() {
-        if (self.auth.userProfile) {
-          self.profile = self.auth.userProfile;
-        } else {
+      if (self.auth.userProfile) {
+        self.profile = self.auth.userProfile;
+      } else {
+        console.log('renewSession was called!');
+        self.auth.renewSession().then(function() {
           self.auth.getProfile((err, profile) => {
             self.profile = profile;
           });
-        }
-      }).catch(function(err) {
-        console.log(err);
-      });
+        }).catch(function(err) {
+          console.log(err);
+        });
+      }
     } else {
       self.auth.handleAuthentication().then(function() {
-        if (self.auth.userProfile) {
-          self.profile = self.auth.userProfile;
-        } else {
-          self.auth.getProfile((err, profile) => {
-            self.profile = profile;
-          });
-        }
+        self.auth.getProfile((err, profile) => {
+          self.profile = profile;
+        });
       }).catch(function(err) {
         console.log(err);
       });
