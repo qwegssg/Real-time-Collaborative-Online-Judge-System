@@ -6,7 +6,7 @@ const indexRouter = require("./routes/index");
 const mongoose = require("mongoose");
 const path = require("path");
 
-mongoose.connect("mongodb://user:user01@ds113749.mlab.com:13749/online-oj-system");
+mongoose.connect('mongodb://user:user01@ds113749.mlab.com:13749/online-oj-system', { useNewUrlParser: true });
 
 app.use(express.static(path.join(__dirname, '../public')));
 app.use('/', indexRouter);

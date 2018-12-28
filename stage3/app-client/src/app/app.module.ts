@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from "@angular/forms";
-import { HttpModule } from "@angular/http";
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
-import { routing } from "./app.routes";
+import { routing } from './app.routes';
 
-import { DataService} from "./services/data.service";
+import { DataService } from './services/data.service';
+import { AuthService } from './services/auth.service';
 
 import { AppComponent } from './app.component';
 import { ProblemListComponent } from './components/problem-list/problem-list.component';
@@ -29,8 +30,11 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   ],
   // providers provide the module that can be used everywhere
   providers: [{
-    provide: "data",
+    provide: 'data',
     useClass: DataService
+  }, {
+    provide: 'auth',
+    useClass: AuthService
   }],
   bootstrap: [AppComponent]
 })
