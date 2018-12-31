@@ -19,7 +19,9 @@ export class AuthGuardService implements CanActivate {
   }
 
   isAdmin(): boolean {
-    if (this.auth.authenticated() && this.auth.getProfile().roles.includes('Admin')) {
+    if (localStorage.getItem('isLoggedIn') === 'true'
+        && this.auth.userProfile != null
+        && this.auth.userProfile['https://randomurl.com/roles'].includes('Admin')) {
       return true;
     } else {
       return false;
