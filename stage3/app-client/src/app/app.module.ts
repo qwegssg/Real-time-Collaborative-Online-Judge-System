@@ -7,6 +7,7 @@ import { routing } from './app.routes';
 
 import { DataService } from './services/data.service';
 import { AuthService } from './services/auth.service';
+import {AuthGuardService } from './services/auth-guard.service';
 
 import { AppComponent } from './app.component';
 import { ProblemListComponent } from './components/problem-list/problem-list.component';
@@ -37,6 +38,9 @@ import { ProfileComponent } from './components/profile/profile.component';
   }, {
     provide: 'auth',
     useClass: AuthService
+  }, {
+    provide: 'authGuard',
+    useClass: AuthGuardService
   }],
   bootstrap: [AppComponent]
 })
