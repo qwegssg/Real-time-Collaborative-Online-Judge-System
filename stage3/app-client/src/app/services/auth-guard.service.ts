@@ -19,6 +19,8 @@ export class AuthGuardService implements CanActivate {
   }
 
   isAdmin(): boolean {
+    // already added a rule for extracting roles data from token
+    // check the Auth0 dashboard
     if (localStorage.getItem('isLoggedIn') === 'true'
         && this.auth.userProfile != null
         && this.auth.userProfile['https://randomurl.com/roles'].includes('Admin')) {

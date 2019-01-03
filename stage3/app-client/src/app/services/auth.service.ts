@@ -130,6 +130,7 @@ export class AuthService {
 
   public resetPassword(): void {
     const profile = this.userProfile;
+    // template literal
     const url = `https://${this.auth0.baseOptions.domain}/dbconnections/change_password`;
     const headers = new Headers({ 'content-type': 'application/json' });
     const requestOptions = new RequestOptions({ headers: headers});
