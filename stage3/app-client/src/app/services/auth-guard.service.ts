@@ -23,6 +23,7 @@ export class AuthGuardService implements CanActivate {
     // check the Auth0 dashboard
     if (localStorage.getItem('isLoggedIn') === 'true'
         && this.auth.userProfile != null
+        && this.auth.userProfile['https://randomurl.com/roles']
         && this.auth.userProfile['https://randomurl.com/roles'].includes('Admin')) {
       return true;
     } else {
