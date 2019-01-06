@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import * as auth0 from 'auth0-js';
 import {Http, Response, Headers, RequestOptions} from '@angular/http';
-// import 'rxjs/add/operator/toPromise';
 
-import { filter } from 'rxjs/operators';
-import { BehaviorSubject, Observable } from 'rxjs';
+// import 'rxjs/add/operator/toPromise';
+// import { filter } from 'rxjs/operators';
+// import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable()
 export class AuthService {
