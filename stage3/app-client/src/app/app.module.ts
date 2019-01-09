@@ -7,7 +7,8 @@ import { routing } from './app.routes';
 
 import { DataService } from './services/data.service';
 import { AuthService } from './services/auth.service';
-import {AuthGuardService } from './services/auth-guard.service';
+import { AuthGuardService } from './services/auth-guard.service';
+import { CollaborationService } from './services/collaboration.service';
 
 import { AppComponent } from './app.component';
 import { ProblemListComponent } from './components/problem-list/problem-list.component';
@@ -43,6 +44,9 @@ import { EditorComponent } from './components/editor/editor.component';
   }, {
     provide: 'authGuard',
     useClass: AuthGuardService
+  }, {
+    provide: 'collaboration',
+    useClass: CollaborationService
   }],
   bootstrap: [AppComponent]
 })
