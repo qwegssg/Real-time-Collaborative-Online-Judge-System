@@ -1,17 +1,26 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
+import {debounce, debounceTime} from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
 
   title = 'CodeLeet';
 
   profile: any;
 
-  constructor(@Inject('auth') private auth) {
+  searchBox: FormControl = new FormControl();
+  subscription: Subscription;
+
+  constructor(@Inject('auth') private auth,
+              @Inject('input') private input,
+              private router: Router) {
 
   }
 
@@ -39,5 +48,22 @@ export class NavbarComponent implements OnInit {
         console.log(err);
       });
     }
+
+    // valueChanges property of searchBox is an observable.
+    // .pipe(debounceTime(400)): delay 400ms, then subscribe.
+    this.subscription = this.searchBox
+      .valueChanges
+      .pipe(debounceTime(400))
+      .subscribe(term => {
+          this.input.changeInput(term);
+      });
   }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
+  searchProblem(): void {
+    this.router.navigate(['/problems']);
+}
 }

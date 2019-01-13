@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { routing } from './app.routes';
@@ -9,6 +10,7 @@ import { DataService } from './services/data.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { CollaborationService } from './services/collaboration.service';
+import { InputService } from './services/input.service';
 
 import { AppComponent } from './app.component';
 import { ProblemListComponent } from './components/problem-list/problem-list.component';
@@ -18,6 +20,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { EditorComponent } from './components/editor/editor.component';
 
+import { SearchPipe } from './pipes/search.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,12 +30,14 @@ import { EditorComponent } from './components/editor/editor.component';
     NewProblemComponent,
     NavbarComponent,
     ProfileComponent,
-    EditorComponent
+    EditorComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
     routing,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule
   ],
   // providers provide the module that can be used everywhere
@@ -47,7 +53,10 @@ import { EditorComponent } from './components/editor/editor.component';
   }, {
     provide: 'collaboration',
     useClass: CollaborationService
-  }],
+  }, {
+    provide: 'input',
+    useClass: InputService
+  },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
