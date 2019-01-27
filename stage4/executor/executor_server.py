@@ -14,7 +14,6 @@ def hello():
 
 @app.route("/build_and_run", methods=["POST"])
 def build_and_run():
-    print "Got called: %s" % (request.data)
     data = json.loads(request.data)
 
     if 'code' not in data or 'lang' not in data:

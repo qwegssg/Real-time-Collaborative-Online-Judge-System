@@ -32,18 +32,18 @@ router.post('/build_and_run', jsonParser, function(req, res) {
     const lang = req.body.lang;
     console.log(lang + ': ' + userCode);
 
-    // // Send build and run request to executor.
-    // rest_client.methods.build_and_run(
-    //     {data: { code: userCode, lang: lang },
-    //         headers: { "Content-Type": "application/json" }
-    //     }, (data, response) => {
-    //         console.log('Recieved response from execution server: ');
-    //         console.log(response);
-    //         // Generate a human readable response displayed in output textarea.
-    //         data['text'] = `Build output: ${data['build']}
-    // Execute output: ${data['run']}`;
-    //         res.json(data);
-    //     });
+    // Send build and run request to executor.
+    rest_client.methods.build_and_run(
+        {data: { code: userCode, lang: lang },
+            headers: { "Content-Type": "application/json" }
+        }, (data, response) => {
+            console.log('Recieved response from execution server: ');
+            console.log(response);
+            // Generate a human readable response displayed in output textarea.
+            data['text'] = `Build output: ${data['build']}
+    Execute output: ${data['run']}`;
+            res.json(data);
+        });
 });
 
 module.exports = router;

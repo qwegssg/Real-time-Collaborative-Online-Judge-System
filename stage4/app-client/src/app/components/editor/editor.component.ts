@@ -23,7 +23,7 @@ export class EditorComponent implements OnInit {
 
   defaultContent = {
     'Java': `public class Example {
-     public void static main (String[] args) {
+     public static void main (String[] args) {
         // Let's start from here...
 
      }

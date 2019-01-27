@@ -9,7 +9,7 @@ IMAGE_NAME = "qwegssg/oj-executor"
 
 # use os package to get the current path:
 CURRENT_DIR = os.path.dirname(os.path.realpath(__file__))
-TEMP_BUILD_DIR = "%s/tmp/" % CURRENT_DIR
+TEMP_BUILD_DIR = "%s/temp/" % CURRENT_DIR
 
 SOURCE_FILE_NAMES = {
     "java" : "Example.java",
