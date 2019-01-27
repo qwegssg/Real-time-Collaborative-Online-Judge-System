@@ -38,8 +38,13 @@ router.post('/build_and_run', jsonParser, function(req, res) {
             headers: { "Content-Type": "application/json" }
         }, (data, response) => {
             console.log('Recieved response from execution server: ');
-            console.log(response);
+
+            // the response field of node_rest_client is full of logs!!!
+            // console.log(response);
+
             // Generate a human readable response displayed in output textarea.
+            // data field is received from executor's result field
+            console.log(data);
             data['text'] = `Build output: ${data['build']}
     Execute output: ${data['run']}`;
             res.json(data);
