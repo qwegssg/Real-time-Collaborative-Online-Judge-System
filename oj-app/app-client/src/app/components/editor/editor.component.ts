@@ -23,10 +23,10 @@ export class EditorComponent implements OnInit {
 
   defaultContent = {
     'Java': `public class Solution {
-     public static void main (String[] args) {
+    public static void main (String[] args) {
         // Let's start from here...
 
-     }
+    }
 }`,
     'C++': `#include <iostream>
 using namespace std;
