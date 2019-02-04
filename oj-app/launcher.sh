@@ -8,7 +8,7 @@ npm install
 nodemon server.js &
 cd ../app-client
 npm install
-ng build --watch &
+ng build --watch --prod -sm true &
 cd ../executor
 pip install -r requirements.txt
 python executor_server.py &
