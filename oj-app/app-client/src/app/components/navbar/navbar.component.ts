@@ -18,7 +18,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   searchBox: FormControl = new FormControl();
   subscription: Subscription;
 
-  constructor(@Inject('auth') private auth,
+  constructor(@Inject('auth') public auth,
               @Inject('input') private input,
               private router: Router) {
 

@@ -20,7 +20,7 @@ export class NewProblemComponent implements OnInit {
   newProblem: Problem = Object.assign({}, DEFAULT_PROBLEM);
 
   constructor(@Inject('data') private data,
-              @Inject('authGuard') private authGuard) { }
+              @Inject('authGuard') public authGuard) { }
 
   ngOnInit() {
   }

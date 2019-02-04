@@ -9,7 +9,7 @@ export class ProfileComponent implements OnInit {
 
   profile: any;
 
-  constructor(@Inject('auth') private auth) { }
+  constructor(@Inject('auth') public auth) { }
 
   ngOnInit() {
     const self = this;
