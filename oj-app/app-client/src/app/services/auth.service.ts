@@ -3,9 +3,8 @@ import { Router } from '@angular/router';
 import * as auth0 from 'auth0-js';
 import {Http, Response, Headers, RequestOptions} from '@angular/http';
 
-// import 'rxjs/add/operator/toPromise';
-// import { filter } from 'rxjs/operators';
-// import { BehaviorSubject, Observable } from 'rxjs';
+const redirectUri = 'http://ec2-18-222-203-95.us-east-2.compute.amazonaws.com';
+// const redirectUri = 'http://localhost:3000';
 
 @Injectable()
 export class AuthService {
@@ -18,7 +17,7 @@ export class AuthService {
     clientID: 'hlKNud6NY7DxrPv2s44utjvo69WcsoVc',
     domain: 'collaborativeoj-yutaoren.auth0.com',
     responseType: 'token id_token',
-    redirectUri: 'http://localhost:3000',
+    redirectUri: redirectUri,
     scope: 'openid email profile'
   });
 
