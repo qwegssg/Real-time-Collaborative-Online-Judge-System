@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 const restRouter = require("./routes/rest");
 const indexRouter = require("./routes/index");
 const mongoose = require("mongoose");
@@ -26,7 +26,7 @@ app.use((req, res) => {
 
 const server = http.createServer(app);
 io.attach(server);
-server.listen(3000);
+server.listen(PORT);
 
 server.on('error', onError);
 server.on('listening', onListening);
