@@ -22,7 +22,7 @@ export class EditorComponent implements OnInit {
   output: string;
 
   defaultContent = {
-    'Java': `public class Example {
+    'Java': `public class Solution {
      public static void main (String[] args) {
         // Let's start from here...
 
@@ -34,10 +34,10 @@ using namespace std;
 int main() {
     // Let's start from here...
 
-return 0;
+    return 0;
 }`,
     'Python': `class Solution:
-    def example():
+    def solution():
       # Let's start from here...
       `
   };

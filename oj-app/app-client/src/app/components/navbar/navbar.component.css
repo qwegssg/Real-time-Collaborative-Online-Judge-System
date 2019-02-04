@@ -1,3 +1,7 @@
 .marginB {
   margin-bottom: 20px;
 }
+
+.dropdown-disabled {
+  color: #6c757d !important;
+}

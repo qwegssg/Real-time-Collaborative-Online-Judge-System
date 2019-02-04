@@ -2,3 +2,7 @@
   margin: 0;
   justify-content: flex-end;
 }
+
+#form {
+  margin-bottom: 20px;
+}
