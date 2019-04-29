@@ -11,7 +11,7 @@ import {debounce, debounceTime} from 'rxjs/operators';
 })
 export class NavbarComponent implements OnInit, OnDestroy {
 
-  title = 'CodeLeet';
+  title = 'Codebar';
 
   profile: any;
 

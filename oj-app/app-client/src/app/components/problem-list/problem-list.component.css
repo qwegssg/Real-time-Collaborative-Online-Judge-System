@@ -2,6 +2,12 @@
   margin-bottom: 20px;
 }
 
+.jumbotron {
+  color: #fff;
+  background-image: url("../../../assets/bar2.jpg");
+  background-size: cover;
+}
+
 .line {
   display: flex;
   align-items: center;

@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import * as auth0 from 'auth0-js';
 import {Http, Response, Headers, RequestOptions} from '@angular/http';
 
-const redirectUri = 'http://ec2-3-16-141-124.us-east-2.compute.amazonaws.com/';
+// const redirectUri = 'http://ec2-3-16-141-124.us-east-2.compute.amazonaws.com/';
+const redirectUri = 'http://ec2-3-14-108-39.us-east-2.compute.amazonaws.com/';
 // const redirectUri = 'http://localhost:3000';
 
 @Injectable()

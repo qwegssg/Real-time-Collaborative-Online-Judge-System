@@ -5,7 +5,7 @@ fuser -k 5000/tcp
 sudo service redis_6379 start
 cd ./app-server
 npm install
-nodemon server.js &
+nodemon server.js  --delay 1500ms &
 cd ../app-client
 npm install
 ng build --watch --prod &

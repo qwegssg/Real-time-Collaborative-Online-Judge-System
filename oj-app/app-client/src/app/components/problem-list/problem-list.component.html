@@ -1,5 +1,11 @@
 <div class="container" id="container">
   <app-new-problem></app-new-problem>
+  <header class="jumbotron">
+    <div class="container">
+      <h1>Codebar</h1>
+      <p>Welcome to Codebar! Get some coffee and let's code and share.</p>
+    </div>
+  </header>
   <div class="list-group">
     <a class="list-group-item list-group-item-action" *ngFor="let problem of problems | search: searchTerm" [routerLink] = "['/problems', problem.id]">
       <div class="line">
