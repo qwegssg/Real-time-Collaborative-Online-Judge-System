@@ -1,5 +1,5 @@
 # Real-time-Collaborative-Online-Judge-System
-- Develope an <strong>Online Judge Platform</strong> for users to collaboratively practice coding and solve algorithm problems.
+- Develop an <strong>Online Judge Platform</strong> for users to collaboratively practice coding and solve algorithm problems.
 - Provide collaborative coding, problem submission, personal profile viewing, password resetting functions for every general
 users after login, grant admin users permission to modify the problem list.
 - Build front-end interface using Angular 6 and Bootstrap, implement user registration and login using Auth0.
